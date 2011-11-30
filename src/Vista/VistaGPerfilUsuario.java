@@ -1,20 +1,9 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
- * VistaGPerfilUsuario.java
- *
- * Created on 23-nov-2011, 22:25:51
- */
 package Vista;
 
 import Modelo.Usuario;
 import javax.swing.JDesktopPane;
 
 /**
- *
  * @author nanohp
  */
 public class VistaGPerfilUsuario extends javax.swing.JInternalFrame implements GestionarModelo {
@@ -40,7 +29,7 @@ public class VistaGPerfilUsuario extends javax.swing.JInternalFrame implements G
         } else if (modo.equals("modificar")) {
             setEditable(true);
             setTitle("Modificación de usuario");
-            this.jTextFieldDNI.setEditable(fa2lse);
+            this.jTextFieldDNI.setEditable(false);
         }
     }
 
@@ -287,7 +276,6 @@ public class VistaGPerfilUsuario extends javax.swing.JInternalFrame implements G
         jTextFieldNombre.setText(usuario.getNombre());
         jTextFieldApellido1.setText(usuario.getApellido1());
         jTextFieldApellido2.setText(usuario.getApellido2());
-
         jTextFieldDNI.setText(new Integer(usuario.getDni()).toString());
         jTextFieldClave.setText(usuario.getClave());
         jTextFieldDireccion.setText(usuario.getDireccion());
@@ -308,7 +296,6 @@ public class VistaGPerfilUsuario extends javax.swing.JInternalFrame implements G
         jTextFieldNombre.setText("");
         jTextFieldApellido1.setText("");
         jTextFieldApellido2.setText("");
-
         jTextFieldDNI.setText("");
         jTextFieldClave.setText("");
         jTextFieldDireccion.setText("");

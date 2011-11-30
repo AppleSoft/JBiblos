@@ -245,6 +245,12 @@ public class VistaGFichaTitulo extends javax.swing.JInternalFrame implements Ges
     @Override
     public void limpiarModelo() {
         titulo = null;
+        jTextFieldCodAutor.setText("");
+        jTextFieldCodTitulo.setText("");
+        jTextFieldNombre.setText("");
+        jTextFieldNombre.setText("");
+        jTextAreaSinopsis.setText("");
+        jComboBoxCodDewey.setSelectedIndex(1);
     }
 
     @Override
@@ -255,8 +261,30 @@ public class VistaGFichaTitulo extends javax.swing.JInternalFrame implements Ges
         jTextFieldNombre.setEditable(setEditable);
         jTextFieldNombre.setEditable(setEditable);
         jTextAreaSinopsis.setEditable(setEditable);
-        autoresTableModel.setEditable(setEditable);
+        //autoresTableModel.setEditable(setEditable);
         jComboBoxCodDewey.setEnabled(setEditable);
+    }
+
+     public void setModo(String modo) {
+        if (modo.equals("mostrar")) {
+            this.setEditable(false);
+        } else if (modo.equals("alta")) {
+            limpiarModelo();
+            setEditable(true);
+            setTitle("Alta de titulo");
+            jButtonAceptar.setText("Alta");
+        } else if (modo.equals("modificar")) {
+            setEditable(true);
+            setTitle("Modificación de titulo");
+            jTextFieldNombre.setEditable(true);
+            jTextFieldCodAutor.setEditable(true);
+            jTextFieldCodTitulo.setEditable(true);
+            jTextFieldNombre.setEditable(true);
+            jTextFieldNombre.setEditable(true);
+            jTextAreaSinopsis.setEditable(true);
+            //autoresTableModel.setEditable(true);
+            jComboBoxCodDewey.setEditable(true);
+        }
     }
 
     class AutoresTableModel extends DefaultTableModel {
@@ -308,5 +336,7 @@ public class VistaGFichaTitulo extends javax.swing.JInternalFrame implements Ges
             System.out.println("editable:" + editable);
             this.editable = editable;
         }
+        
+       
     }
 }

@@ -244,12 +244,22 @@ public class VistaGPrincipal extends javax.swing.JFrame implements GestorEventos
         jMenuCatalogo.setText("Catálogo");
 
         jMenuItem6.setText("Alta");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         jMenuCatalogo.add(jMenuItem6);
 
         jMenuItem7.setText("Baja");
         jMenuCatalogo.add(jMenuItem7);
 
         jMenuItem8.setText("Modificación");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
         jMenuCatalogo.add(jMenuItem8);
 
         jMenuAdministrador.add(jMenuCatalogo);
@@ -322,6 +332,16 @@ public class VistaGPrincipal extends javax.swing.JFrame implements GestorEventos
         vGPerfilUsuario.setModo("modificar");
         vGPerfilUsuario.setVisible(true);
     }//GEN-LAST:event_jMenuItemUsuariosModificarActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+       vGFichaTitulo.setModo("alta");
+        vGFichaTitulo.setVisible(true);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        vGFichaTitulo.setModo("modificar");
+        vGFichaTitulo.setVisible(true);
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     /**
      * @param args the command line arguments

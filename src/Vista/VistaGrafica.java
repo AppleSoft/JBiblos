@@ -46,8 +46,8 @@ public class VistaGrafica implements IVista, GestorEventos {
 
     private void inicializaLookAndFeelInicial() {
         try {
-            //lookAndFeel = "com.sun.java.swing.plaf.motif.MotifLookAndFeel";
-            String lookAndFeel = "com.sun.java.swing.plaf.gtk.GTKLookAndFeel";
+            lookAndFeel = "com.sun.java.swing.plaf.windows.WindowsLookAndFeel";
+            //String lookAndFeel = "com.sun.java.swing.plaf.gtk.GTKLookAndFeel";
             UIManager.setLookAndFeel(lookAndFeel);
         } catch (UnsupportedLookAndFeelException ex) {
             Logger.getLogger(VistaGrafica.class.getName()).log(Level.SEVERE, null, ex);
