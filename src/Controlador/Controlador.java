@@ -9,9 +9,11 @@ import HBM.TituloId;
 import Modelo.Biblioteca;
 import Modelo.Catalogo;
 import Modelo.CodDewey;
+import Modelo.ListaUsuarios;
 import Modelo.Login;
 import Modelo.Usuario;
 import java.beans.PropertyChangeEvent;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -44,6 +46,7 @@ public class Controlador extends AbstractController implements GestorEventos {
                     Usuario usuario;
                     try {
                         usuario = biblioteca.login(login.getNombre(), login.getClave());
+
                         ((Usuario) usuario).setLookAndFeel(login.getLookAndFeel());
                         //System.out.println("---"+usuario.getClass().getSimpleName()+"-");
                         eventoAux = new Evento(TipoEvento.LOGIN_OK, usuario);
@@ -64,13 +67,10 @@ public class Controlador extends AbstractController implements GestorEventos {
                 break;
 
             case CONSULTA_CATALOGO_GENERAL:
-
                 System.out.println("CONSULTA_CATALOGO_GENERAL");
                 try {
-
                     Catalogo catalogo = biblioteca.getAlberga();
                     eventoAux = new Evento(TipoEvento.CONSULTA_CATALOGO_GENERAL, catalogo);
-
                 } catch (Exception ex) {
                     Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
                     System.err.println("CONSULTA_CATALOGO_GENERAL: ERROR");
@@ -97,6 +97,19 @@ public class Controlador extends AbstractController implements GestorEventos {
                 }
                 evento.getDestinoRespueta().procesarEvento(eventoAux);
                 break;
+            case CONSULTA_USUARIO_GENERAL:
+                System.out.println("CONSULTA_USUARIOS_GENERAL");
+                try {
+                    ListaUsuarios listaUsuarios = biblioteca.getUsuarios();
+                    eventoAux = new Evento(TipoEvento.CONSULTA_USUARIO_GENERAL, listaUsuarios);
+                } catch (Exception ex) {
+                    Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+                    System.err.println("CONSULTA_USUARIO_GENERAL: ERROR");
+                    eventoAux = new Evento(TipoEvento.ERROR);
+                }
+                evento.getDestinoRespueta().procesarEvento(eventoAux);
+                break;
+
         }
 
 

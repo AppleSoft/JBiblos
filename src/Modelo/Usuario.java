@@ -100,5 +100,10 @@ public class Usuario extends Persona {
         this.lookAndFeel = lookAndFeel;
     }
     
+    @Override
+    public String getApellido1(){
+        return super.getApellido1();
+    }
+    
     
 }

@@ -6,6 +6,7 @@
     <class>Utils.Usuario</class>
     <class>Utils.Tipo</class>
     <class>Utils.Plantilla</class>
+    <class>HBM.Usuario</class>
     <properties>
       <property name="hibernate.connection.username" value="jbiblos"/>
       <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>

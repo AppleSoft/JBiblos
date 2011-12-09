@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package Vista;
 
 import Controlador.Controlador;
@@ -19,8 +15,8 @@ import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.plaf.metal.DefaultMetalTheme;
 import javax.swing.plaf.metal.MetalLookAndFeel;
 import javax.swing.plaf.metal.OceanTheme;
+
 /**
- *
  * @author nanohp
  */
 public class VistaGrafica implements IVista, GestorEventos {
@@ -35,8 +31,7 @@ public class VistaGrafica implements IVista, GestorEventos {
     private final static String LOOKANDFEEL = "Metal";
     private final static String THEME = "Ocean";
 
-    public VistaGrafica(Biblioteca biblioteca) {
-        this.biblioteca = biblioteca;
+    public VistaGrafica() {
         inicializaLookAndFeelInicial();
     }
 
@@ -47,7 +42,7 @@ public class VistaGrafica implements IVista, GestorEventos {
     private void inicializaLookAndFeelInicial() {
         try {
             lookAndFeel = "com.sun.java.swing.plaf.windows.WindowsLookAndFeel";
-            //String lookAndFeel = "com.sun.java.swing.plaf.gtk.GTKLookAndFeel";
+            //lookAndFeel = "com.sun.java.swing.plaf.gtk.GTKLookAndFeel";
             UIManager.setLookAndFeel(lookAndFeel);
         } catch (UnsupportedLookAndFeelException ex) {
             Logger.getLogger(VistaGrafica.class.getName()).log(Level.SEVERE, null, ex);

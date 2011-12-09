@@ -19,7 +19,9 @@ public enum TipoEvento {
     ERROR("Mensaje de Error"),
     LOGOUT("Logout"),
     CONSULTA_CATALOGO_GENERAL("Consulta catálogo general"),
-    CONSULTA_CATALOGO_CONCRETA("Consulta catálogo concreta");
+    CONSULTA_CATALOGO_CONCRETA("Consulta catálogo concreta"),
+    CONSULTA_USUARIO_GENERAL("Consulta usuarios"),
+    CONSULTA_USUARIO_CONCRETA("Consulta usuario concreto");
     private String tipoEvento;
 
     private TipoEvento(String tipoEvento) {

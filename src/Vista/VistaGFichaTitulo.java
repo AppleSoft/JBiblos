@@ -13,13 +13,9 @@ package Vista;
 import HBM.Autor;
 import HBM.Dewey;
 import HBM.Titulo;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.SortedSet;
-import java.util.Vector;
-
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -66,22 +62,23 @@ public class VistaGFichaTitulo extends javax.swing.JInternalFrame implements Ges
         jTableAutores = new javax.swing.JTable();
         jTextFieldNombre = new javax.swing.JTextField();
         jTextFieldCodTitulo = new javax.swing.JTextField();
-        jButtonAceptar = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jTextFieldCodAutor = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextAreaSinopsis = new javax.swing.JTextArea();
         jComboBoxCodDewey = new javax.swing.JComboBox();
+        jButton1 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setIconifiable(true);
         setMaximizable(true);
-        setResizable(true);
         setTitle("Ficha título");
 
-        jLabel2.setText("Nombre");
+        jLabel2.setText("Titulo");
 
         jLabel3.setText("Autores");
 
@@ -107,10 +104,10 @@ public class VistaGFichaTitulo extends javax.swing.JInternalFrame implements Ges
 
         jTextFieldCodTitulo.setColumns(3);
 
-        jButtonAceptar.setText("Aceptar");
-        jButtonAceptar.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setText("Cancelar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAceptarActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -128,39 +125,43 @@ public class VistaGFichaTitulo extends javax.swing.JInternalFrame implements Ges
 
         jComboBoxCodDewey.setModel(new javax.swing.DefaultComboBoxModel());
 
+        jButton1.setText("Moficar");
+
+        jButton3.setText("Borrar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addComponent(jLabel4)
+                        .addGap(23, 23, 23)
+                        .addComponent(jComboBoxCodDewey, 0, 247, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldCodAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextFieldCodTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(13, 13, 13))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel3))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel5))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-                                    .addComponent(jTextFieldNombre)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(18, 18, 18)
-                                .addComponent(jComboBoxCodDewey, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldCodAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldCodTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 475, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(232, 232, 232)
-                        .addComponent(jButtonAceptar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel3)))
-                .addContainerGap())
+                                .addComponent(jButton1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton2))
+                            .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,22 +174,22 @@ public class VistaGFichaTitulo extends javax.swing.JInternalFrame implements Ges
                     .addComponent(jTextFieldCodTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel2)
+                    .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5)
-                        .addGap(51, 51, 51)))
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
-                .addGap(30, 30, 30)
-                .addComponent(jButtonAceptar)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton1)
+                            .addComponent(jButton3)
+                            .addComponent(jButton2)))
+                    .addComponent(jLabel3))
                 .addContainerGap())
         );
 
@@ -199,11 +200,13 @@ public class VistaGFichaTitulo extends javax.swing.JInternalFrame implements Ges
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNombreActionPerformed
 
-    private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAceptarActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         setVisible(false);
-    }//GEN-LAST:event_jButtonAceptarActionPerformed
+    }//GEN-LAST:event_jButton2ActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonAceptar;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JComboBox jComboBoxCodDewey;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -252,44 +255,40 @@ public class VistaGFichaTitulo extends javax.swing.JInternalFrame implements Ges
         jTextAreaSinopsis.setText("");
         jComboBoxCodDewey.setSelectedIndex(1);
     }
-
+    
     @Override
     public void setEditable(boolean setEditable) {
-        //jTextFieldCodDewey.setEditable(setEditable);
         jTextFieldCodAutor.setEditable(setEditable);
         jTextFieldCodTitulo.setEditable(setEditable);
         jTextFieldNombre.setEditable(setEditable);
         jTextFieldNombre.setEditable(setEditable);
         jTextAreaSinopsis.setEditable(setEditable);
-        //autoresTableModel.setEditable(setEditable);
-        jComboBoxCodDewey.setEnabled(setEditable);
     }
 
-     public void setModo(String modo) {
+    public void setModo(String modo) {
+        
         if (modo.equals("mostrar")) {
-            this.setEditable(false);
+            setEditable(false);
+            jButton2.setText("Ok");
         } else if (modo.equals("alta")) {
+            titulo = null;
             limpiarModelo();
             setEditable(true);
             setTitle("Alta de titulo");
-            jButtonAceptar.setText("Alta");
+            jButton2.setText("Alta");
         } else if (modo.equals("modificar")) {
             setEditable(true);
             setTitle("Modificación de titulo");
-            jTextFieldNombre.setEditable(true);
-            jTextFieldCodAutor.setEditable(true);
-            jTextFieldCodTitulo.setEditable(true);
-            jTextFieldNombre.setEditable(true);
-            jTextFieldNombre.setEditable(true);
-            jTextAreaSinopsis.setEditable(true);
-            //autoresTableModel.setEditable(true);
-            jComboBoxCodDewey.setEditable(true);
+            jButton2.setText("Guardar");
+        } else if (modo.equals("borrar")) {
+            setEditable(false);
+            setTitle("Eliminación de titulo");
+            
         }
     }
 
     class AutoresTableModel extends DefaultTableModel {
-
-        boolean editable = true;
+        boolean editable = false;
         Object[] encabezado = {"Apellidos", "Nombre"};
         private Set<Autor> autores = new HashSet<Autor>();
 
@@ -316,11 +315,11 @@ public class VistaGFichaTitulo extends javax.swing.JInternalFrame implements Ges
         }
 
         @Override
-        public boolean isCellEditable(int rowIndex, int columnIndex) {
+        public boolean isCellEditable(int row, int column) {
             if (!editable) {
                 return false;
             } else {
-                return super.isCellEditable(rowIndex, columnIndex);
+                return super.isCellEditable(row, column);
             }
         }
 
@@ -332,11 +331,8 @@ public class VistaGFichaTitulo extends javax.swing.JInternalFrame implements Ges
             return editable;
         }
 
-        public void setEditable(boolean editable) {
-            System.out.println("editable:" + editable);
+        public void setEditableInner(boolean editable) {
             this.editable = editable;
         }
-        
-       
     }
 }

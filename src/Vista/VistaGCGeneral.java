@@ -1,13 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
- * VistaGCGeneral.java
- *
- * Created on 23-nov-2011, 23:27:34
- */
 package Vista;
 
 import HBM.Autor;
@@ -25,7 +15,6 @@ import javax.swing.table.DefaultTableModel;
 import org.apache.commons.lang3.text.WordUtils;
 
 /**
- *
  * @author nanohp
  */
 public class VistaGCGeneral extends javax.swing.JInternalFrame implements GestionarModelo {
@@ -41,9 +30,11 @@ public class VistaGCGeneral extends javax.swing.JInternalFrame implements Gestio
         this.jDesktopPane = jDesktopPane;
 
         initComponents();
+        
+        //prepara la ventana de ficha especifica que se abre cuando se seleciona una fila de la tabla
         inicializaComponentesPropios();
     }
-
+    //prepara la ventana de ficha especifica que se abre cuando se seleciona una fila de la tabla
     private void inicializaComponentesPropios() {
         vGFichaTitulo = new VistaGFichaTitulo(listaCategoriasDewey);
         jDesktopPane.add(vGFichaTitulo);
@@ -53,8 +44,6 @@ public class VistaGCGeneral extends javax.swing.JInternalFrame implements Gestio
     // Implementacion de los metodos de 'GestionarModelo'
     @Override
     public void fijarModelo(Object object) {
-        assert (object.getClass().getName().endsWith(".Catalogo")) : "fijarModelo: clase suminastrada invalida";
-
         catalogoTableModel = new CatalogoTableModel((Catalogo) object);
         jTableCatalogo.setModel(catalogoTableModel);
         jTableCatalogo.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
@@ -119,6 +108,7 @@ public class VistaGCGeneral extends javax.swing.JInternalFrame implements Gestio
             setDataVector(data, encabezado);
         }
 
+        @Override
         public boolean isCellEditable(int rowIndex, int columnIndex) {
             if (!editable) {
                 return false;
@@ -159,6 +149,7 @@ public class VistaGCGeneral extends javax.swing.JInternalFrame implements Gestio
         jTableCatalogo = new javax.swing.JTable();
         jButtonAceptar = new javax.swing.JButton();
         jButtonMostrarFicha = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -200,6 +191,8 @@ public class VistaGCGeneral extends javax.swing.JInternalFrame implements Gestio
             }
         });
 
+        jButton1.setText("Alta");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -214,17 +207,20 @@ public class VistaGCGeneral extends javax.swing.JInternalFrame implements Gestio
                         .addComponent(jButtonAceptar)
                         .addGap(40, 40, 40)
                         .addComponent(jButtonMostrarFicha)
-                        .addGap(220, 220, 220))))
+                        .addGap(37, 37, 37)
+                        .addComponent(jButton1)
+                        .addGap(110, 110, 110))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonAceptar)
-                    .addComponent(jButtonMostrarFicha))
+                    .addComponent(jButtonMostrarFicha)
+                    .addComponent(jButton1))
                 .addContainerGap())
         );
 
@@ -243,17 +239,19 @@ public class VistaGCGeneral extends javax.swing.JInternalFrame implements Gestio
     }//GEN-LAST:event_jTableCatalogoMouseClicked
 
     private void jButtonMostrarFichaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMostrarFichaActionPerformed
+        vGFichaTitulo.setModo("mostrar");
         int filaSeleccionada = jTableCatalogo.getSelectedRow();
         System.out.println(filaSeleccionada);
         if (filaSeleccionada > -1) {
             System.out.println("--:" + catalogoTableModel.getTitulo(filaSeleccionada));
             vGFichaTitulo.fijarModelo(catalogoTableModel.getTitulo(filaSeleccionada));
-            vGFichaTitulo.setEditable(false);
+            //vGFichaTitulo.setEditable(false);
             vGFichaTitulo.setVisible(true);
         }
 
     }//GEN-LAST:event_jButtonMostrarFichaActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAceptar;
     private javax.swing.JButton jButtonMostrarFicha;
     private javax.swing.JScrollPane jScrollPane1;

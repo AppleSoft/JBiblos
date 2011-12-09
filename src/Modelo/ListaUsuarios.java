@@ -2,39 +2,34 @@ package Modelo;
 
 import java.util.*;
 
-/**
- * @author nanohp
- */
 public class ListaUsuarios {
 
-	private Usuario attribute;
+    private HashMap<Integer, Usuario> listaUsuarios;
 
-	/**
-	 * 
-	 * @param usuario
-	 */
-	public void alta(Usuario usuario) {
-		throw new UnsupportedOperationException();
-	}
+    public ListaUsuarios() {
+        listaUsuarios = new HashMap<Integer, Usuario>();
+    }
 
-	/**
-	 * 
-	 * @param dni
-	 */
-	public void baja(int dni) {
-		throw new UnsupportedOperationException();
-	}
+    public void alta(Usuario usuario) {
+        
+    }
 
-	/**
-	 * 
-	 * @param dni
-	 */
-	public void modificar(int dni) {
-		throw new UnsupportedOperationException();
-	}
+    public void baja(int dni) {
+        
+    }
 
-	public Map<Integer, Usuario> getListaUsuarios() {
-		throw new UnsupportedOperationException();
-	}
+    public void modificar(int dni) {
+        throw new UnsupportedOperationException();
+    }
 
+    public Map<Integer, Usuario> getListaUsuarios() {
+        return listaUsuarios;
+    }
+
+    public void init(List<Usuario> listaUsuarios) {
+        for (Usuario usuario : listaUsuarios) {
+            this.listaUsuarios.put((Integer) usuario.getDni(), usuario);
+            System.out.println("dni: "+usuario.getDni()+" en el init de ListaUsuarios");
+        }
+    }
 }
